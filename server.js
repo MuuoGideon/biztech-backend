@@ -17,22 +17,10 @@ connectDB();
 // Initialize express
 const app = express();
 
-// // CORS FIX — allow requests from your frontend
-// app.use(
-// 	cors({
-// 		origin: 'http://localhost:5173', // your React app
-// 		methods: 'GET,POST,PUT,DELETE',
-// 		credentials: true,
-// 	})
-// );
-
 app.use(
 	cors({
-		origin: [
-			'biztech-frontend.vercel.app', // new frontend URL
-			'http://localhost:5173', // dev
-		],
-		credentials: true,
+		origin: 'https://biztech-frontend.vercel.app',
+		credentials: true, // if sending cookies or credentials
 	})
 );
 
