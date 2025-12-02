@@ -19,16 +19,9 @@ connectDB();
 const app = express();
 
 // =====================================================================
-// Uncomment this to get to the online verion
-// app.use(
-// 	cors({
-// 		origin: 'http://localhost:5000',
-// 		credentials: true, // if sending cookies or credentials
-// 	})
-// );
 app.use(
 	cors({
-		origin: 'http://localhost:5173',
+		origin: 'https://biztech-frontend-3xgi.vercel.app/',
 		credentials: true,
 	})
 );
