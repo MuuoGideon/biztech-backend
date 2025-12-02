@@ -19,12 +19,27 @@ connectDB();
 const app = express();
 
 // =====================================================================
+// CORS setup
+const allowedOrigins = [
+	'http://localhost:5173', // local frontend
+	'https://biztech-frontend-3xgi.vercel.app', // production frontend
+];
+
 app.use(
 	cors({
-		origin: 'https://biztech-frontend-3xgi.vercel.app/',
+		origin: function (origin, callback) {
+			// allow requests with no origin (like Postman)
+			if (!origin) return callback(null, true);
+			if (allowedOrigins.includes(origin)) {
+				callback(null, true);
+			} else {
+				callback(new Error('Not allowed by CORS'));
+			}
+		},
 		credentials: true,
 	})
 );
+
 // ========================================================================
 
 // Body parser middleware
